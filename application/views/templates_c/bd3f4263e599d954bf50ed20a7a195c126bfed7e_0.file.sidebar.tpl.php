@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-05-29 17:55:46
+/* Smarty version 3.1.40, created on 2023-10-08 20:24:17
   from '/home/amen/public_html/sygis-ipm/application/views/templates/skeleton/sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_6474e72289d6a7_02531835',
+  'unifunc' => 'content_65230ff114b608_98985902',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd3f4263e599d954bf50ed20a7a195c126bfed7e' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/skeleton/sidebar.tpl',
-      1 => 1685380596,
+      1 => 1696796653,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6474e72289d6a7_02531835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65230ff114b608_98985902 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9123081176474e72286ccb4_18281690', "sidebar");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20422266265230ff1115645_18153501', "sidebar");
 }
 /* {block "script"} */
-class Block_20276043026474e72286d5c5_47582397 extends Smarty_Internal_Block
+class Block_22759741765230ff1115ef9_02002595 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -44,16 +44,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "script"} */
 /* {block "sidebar"} */
-class Block_9123081176474e72286ccb4_18281690 extends Smarty_Internal_Block
+class Block_20422266265230ff1115645_18153501 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'sidebar' => 
   array (
-    0 => 'Block_9123081176474e72286ccb4_18281690',
+    0 => 'Block_20422266265230ff1115645_18153501',
   ),
   'script' => 
   array (
-    0 => 'Block_20276043026474e72286d5c5_47582397',
+    0 => 'Block_22759741765230ff1115ef9_02002595',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,7 +61,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div id="sidebar" class="sidebar responsive ace-save-state">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20276043026474e72286d5c5_47582397', "script", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_22759741765230ff1115ef9_02002595', "script", $this->tplIndex);
 ?>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">

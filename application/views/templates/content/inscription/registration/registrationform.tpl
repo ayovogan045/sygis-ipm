@@ -7,16 +7,16 @@
                     <legend class="">{$candidatslabel}</legend>
 
                     <div class="col-sm-12">
-                        <select multiple="multiple" size="10" name="candidatselectedlist[]" id="duallist">
-                            {foreach from=$candidatdatalist item=data}
+                        <select multiple="multiple" size="10" name="inscriptionselectedlist[]" id="duallist">
+                            {foreach from=$inscriptiondatalist item=data}
                                 <option value="{$data->getId()}">
-                                    {$data->getPerson_info()}
+                                    {$data->getCandidat()->getPerson_info()}
                                 </option>
                             {/foreach}
                             {if count($registrationdatalist) != 0 }
                                 {foreach from=$registrationdatalist item=registration}
                                     <option value="{$registration->getId()}" selected="selected">
-                                        {$registration->getCandidat()->getPerson_info()}
+                                        {$registration->getInscription()->getCandidat()->getPerson_info()}
                                     </option>
                                 {/foreach}
                             {/if}

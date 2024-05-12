@@ -44,7 +44,7 @@
 
         <tbody>
             {$index = 1}
-            {foreach from=$inscriptiondatalist  item=data}
+            {foreach from=$inscription_datalist  item=data}
                 <tr>
                     <td>{$index}</td>
                     <td class="center">

@@ -16,7 +16,7 @@ interface IInscriptionDAO {
 
     public function getAllByAcademicYear($academicyear);
     
-    public function getAllToRegistrationByAcademicYear($academicyear);
+    public function getAllToRegistration();
     
     public function abandonOne($pk);
 

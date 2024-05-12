@@ -53,6 +53,11 @@ class Grade extends Baseentity implements \Serializable {
      * @OneToMany(targetEntity="Mention", mappedBy="grade")
      * */
     private $mentions;
+    
+      /**
+     * @OneToMany(targetEntity="PersonInfo", mappedBy="grade")
+     * */
+    private $grade_person_infos;
 
     /**
      * @var boolean

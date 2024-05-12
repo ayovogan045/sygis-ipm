@@ -16,12 +16,14 @@ use entities\Candidat,
     entities\Registration;
 use serviceImpl\PersonInfoService;
 use serviceImpl\CandidatService;
+use serviceImpl\InscriptionService;
 use serviceImpl\AcademicYearService,
     serviceImpl\RegistrationService;
 use Doctrine\Common\Collections\ArrayCollection;
 
 require_once APPPATH . 'models/serviceImpl/PersonInfoService.php';
 require_once APPPATH . 'models/serviceImpl/CandidatService.php';
+require_once APPPATH . 'models/serviceImpl/InscriptionService.php';
 require_once APPPATH . 'models/serviceImpl/AcademicYearService.php';
 require_once APPPATH . 'models/serviceImpl/RegistrationService.php';
 
@@ -38,15 +40,16 @@ require_once APPPATH . 'models/serviceImpl/RegistrationService.php';
 class RegistrationController extends BaseController {
 
     private $candidatService;
+    private $inscriptionService;
     private $personinfoService;
     private $academicyearService;
     private $registrationService;
     private $registration_datalist;
     private $entity;
-    private $wording;
-    private $description;
+    private $candidat;
+    private $inscription;
     private $candidat_datalist;
-    private $candidatlist;
+    private $inscription_datalist;
 
     /**
      * constructor
@@ -65,6 +68,7 @@ class RegistrationController extends BaseController {
         $this->layout->assignOne('subactivelink', 'Liste des candidats inscrits validés');
 
         $this->candidatService = new CandidatService();
+        $this->inscriptionService = new InscriptionService();
         $this->personinfoService = new PersonInfoService();
         $this->academicyearService = new AcademicYearService();
         $this->registrationService = new RegistrationService();
@@ -91,11 +95,13 @@ class RegistrationController extends BaseController {
      */
     public function newregistration() {
         $this->registration_datalist = new ArrayCollection($this->list_registration());
-        $this->candidat_datalist = new ArrayCollection($this->candidatService->getAllWithSortAndOrder("last_name", "ASC"));
-        foreach ($this->registration_datalist as $registration) {
-            $this->candidat_datalist->removeElement($registration->getCandidat());
-        }
-        $this->layout->assignOne('candidatdatalist', $this->candidat_datalist);
+        $this->inscription_datalist = new ArrayCollection($this->inscriptionService->getAllToRegistration(
+                        $this->academicyearService->getActivated()));
+//        $this->inscription_datalist = new ArrayCollection($this->inscriptionService->getAllWithSortAndOrder("candidat", "ASC"));
+//        foreach ($this->registration_datalist as $registration) {
+//            $this->inscription_datalist->removeElement($registration->getInscription());
+//        }
+        $this->layout->assignOne('inscriptiondatalist', $this->inscription_datalist);
         $this->layout->assignOne('registrationdatalist', $this->registration_datalist);
 
         // show the template
@@ -117,19 +123,36 @@ class RegistrationController extends BaseController {
             $this->session->set_userdata('currentRegistration', 0);
         } else {
             //create an registration object
-            //proccess to add a new registration to database
+            //proccess to add a new registration to database   
             $registrations = new ArrayCollection();
-            foreach ($this->getCandidatlist() as $candidat) {
-                $registrations->add(new Registration(date("F j, Y, g:i a"), $this->getNormalStatus(), 
-                        $this->academicyearService->getActivated(), $candidat));
-                $this->crud->createAll($this->registrationService, $registrations);
-                $this->layout->assignOne('success', "Validation effective ");
+            $this->registration_datalist = $this->registrationService->getAllByAcademicYear(
+                    $this->academicyearService->getActivated());
+            if ($this->registration_datalist != NULL) {
+                foreach ($this->getInscription_datalist() as $inscription) {
+                    if ($inscription != NULL) {
+//                    print_r("-----" . $inscription . "//");
+                        foreach ($this->registration_datalist as $r) {
+                            if ($r->getInscription() != $inscription) {
+                                $registrations->add(new Registration(date("F j, Y, g:i a"), $this->getNormalStatus(),
+                                                $this->academicyearService->getActivated(), $inscription));
+                            }
+                        }
+                    }
+                }
+            } else {
+                foreach ($this->getInscription_datalist() as $inscription) {
+                    $registrations->add(new Registration(date("F j, Y, g:i a"), $this->getNormalStatus(),
+                                    $this->academicyearService->getActivated(), $inscription));
+                }
             }
+
+            $this->crud->createAll($this->registrationService, $registrations);
+            $this->layout->assignOne('success', "Validation effective ");
         }
         $this->layout->assignOne('registrationdatalist', $this->list_registration());
 
-        $this->layout->assignOne('addnewlink', '../../../index.php/inscription/RegistrationController/newregistration');
-        $this->layout->assignOne('listlink', '../../../index.php/inscription/RegistrationController/registrationlist');
+        $this->layout->assignOne('addnewlink', '../index.php/inscription/RegistrationController/newregistration');
+        $this->layout->assignOne('listlink', '../index.php/inscription/RegistrationController/registrationlist');
         // show the template
         $this->layout->view('content/inscription/registration/registrationlistpage.tpl');
     }
@@ -163,7 +186,7 @@ class RegistrationController extends BaseController {
     }
 
     function getPostData() {
-        $this->setCandidatlist($this->crud->findAll($this->candidatService, $_POST['candidatselectedlist']));
+        $this->setInscription_datalist($this->crud->findAll($this->inscriptionService, $_POST['inscriptionselectedlist']));
     }
 
     function editFields($key) {
@@ -204,12 +227,35 @@ class RegistrationController extends BaseController {
         }
     }
 
-    public function getCandidatlist() {
-        return $this->candidatlist;
+    public function getCandidat() {
+        return $this->candidat;
     }
 
-    public function setCandidatlist($candidatlist): void {
-        $this->candidatlist = $candidatlist;
+    public function getInscription() {
+        return $this->inscription;
     }
 
+    public function getCandidat_datalist() {
+        return $this->candidat_datalist;
+    }
+
+    public function getInscription_datalist() {
+        return $this->inscription_datalist;
+    }
+
+    public function setCandidat($candidat): void {
+        $this->candidat = $candidat;
+    }
+
+    public function setInscription($inscription): void {
+        $this->inscription = $inscription;
+    }
+
+    public function setCandidat_datalist($candidat_datalist): void {
+        $this->candidat_datalist = $candidat_datalist;
+    }
+
+    public function setInscription_datalist($inscription_datalist): void {
+        $this->inscription_datalist = $inscription_datalist;
+    }
 }

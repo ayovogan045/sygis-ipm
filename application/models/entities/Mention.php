@@ -53,6 +53,11 @@ class Mention extends Baseentity implements \Serializable {
      * @OneToMany(targetEntity="Speciality", mappedBy="mention")
      * */
     private $specialities;
+    
+    /**
+     * @OneToMany(targetEntity="PersonInfo", mappedBy="mention")
+     * */
+    private $mention_person_infos;
 
     /**
      * @var boolean

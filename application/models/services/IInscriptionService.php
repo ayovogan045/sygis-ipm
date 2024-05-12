@@ -18,7 +18,7 @@ interface IInscriptionService {
 
     public function getAllByAcademicYear($academicyear);
     
-    public function getAllToRegistrationByAcademicYear($academicyear);
+    public function getAllToRegistration();
     
     public function getAllForPrint($academicyear, $start_date, $end_date);
 

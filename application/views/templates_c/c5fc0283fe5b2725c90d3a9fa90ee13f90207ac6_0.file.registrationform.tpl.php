@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-05-25 16:15:19
+/* Smarty version 3.1.40, created on 2023-09-06 21:19:48
   from '/home/amen/public_html/sygis-ipm/application/views/templates/content/inscription/registration/registrationform.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_646f899730dc52_45657721',
+  'unifunc' => 'content_64f8ecf49e9ae8_32704898',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5fc0283fe5b2725c90d3a9fa90ee13f90207ac6' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/content/inscription/registration/registrationform.tpl',
-      1 => 1685030255,
+      1 => 1694033232,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646f899730dc52_45657721 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64f8ecf49e9ae8_32704898 (Smarty_Internal_Template $_smarty_tpl) {
 ?><fieldset class="fieldset">
     <legend class="table-header"><?php echo $_smarty_tpl->tpl_vars['addnewlabel']->value;?>
 </legend>
@@ -35,16 +35,16 @@ function content_646f899730dc52_45657721 (Smarty_Internal_Template $_smarty_tpl)
 </legend>
 
                     <div class="col-sm-12">
-                        <select multiple="multiple" size="10" name="candidatselectedlist[]" id="duallist">
+                        <select multiple="multiple" size="10" name="inscriptionselectedlist[]" id="duallist">
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['candidatdatalist']->value, 'data');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['inscriptiondatalist']->value, 'data');
 $_smarty_tpl->tpl_vars['data']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['data']->value) {
 $_smarty_tpl->tpl_vars['data']->do_else = false;
 ?>
                                 <option value="<?php echo $_smarty_tpl->tpl_vars['data']->value->getId();?>
 ">
-                                    <?php echo $_smarty_tpl->tpl_vars['data']->value->getPerson_info();?>
+                                    <?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info();?>
 
                                 </option>
                             <?php
@@ -59,7 +59,7 @@ $_smarty_tpl->tpl_vars['registration']->do_else = false;
 ?>
                                     <option value="<?php echo $_smarty_tpl->tpl_vars['registration']->value->getId();?>
 " selected="selected">
-                                        <?php echo $_smarty_tpl->tpl_vars['registration']->value->getCandidat()->getPerson_info();?>
+                                        <?php echo $_smarty_tpl->tpl_vars['registration']->value->getInscription()->getCandidat()->getPerson_info();?>
 
                                     </option>
                                 <?php

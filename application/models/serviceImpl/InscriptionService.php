@@ -37,8 +37,8 @@ class InscriptionService extends Service implements IInscriptionService {
         return $this->getInscriptionDAO()->getAllByAcademicYear($academicyear);
     }
     
-    public function getAllToRegistrationByAcademicYear($academicyear) {
-        return $this->getInscriptionDAO()->getAllToRegistrationByAcademicYear($academicyear);
+    public function getAllToRegistration() {
+        return $this->getInscriptionDAO()->getAllToRegistration();
     }
     
     public function getAllForPrint($academicyear, $start_date, $end_date) {

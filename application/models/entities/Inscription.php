@@ -9,7 +9,7 @@ namespace entities;
  * MappedSuperclass
  */
 
-//use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use entities\Baseentity;
 
 require_once APPPATH . 'models/entities/Baseentity.php';
@@ -61,6 +61,11 @@ class Inscription extends Baseentity implements \Serializable {
     private $candidat;
 
     /**
+     * @OneToMany(targetEntity="Registration", mappedBy="inscription")
+     * */
+    private $registrations;
+
+    /**
      * @ManyToOne(targetEntity="Fee", fetch="LAZY")
      * @JoinColumn(name="fee_id", nullable=false, referencedColumnName="id")
      * */
@@ -72,7 +77,8 @@ class Inscription extends Baseentity implements \Serializable {
         $this->payment_date = $payment_date;
         $this->state = $state;
         $this->candidat = $candidat;
-        $this->fee = $fee;
+        $this->fee = $fee;        
+        $this->registrations = new ArrayCollection();
     }
 
     function getId() {
@@ -97,6 +103,10 @@ class Inscription extends Baseentity implements \Serializable {
 
     function getCandidat() {
         return $this->candidat;
+    }
+    
+    public function getRegistrations() {
+        return $this->registrations;
     }
 
     function getFee() {
@@ -130,8 +140,12 @@ class Inscription extends Baseentity implements \Serializable {
     function setFee($fee) {
         $this->fee = $fee;
     }
+    
+    public function setRegistrations($registrations): void {
+        $this->registrations = $registrations;
+    }
 
-    public function __toString() {
+        public function __toString() {
         return $this->candidat->__toString();
     }
 

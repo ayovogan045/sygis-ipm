@@ -48,9 +48,9 @@ class Candidat extends Baseentity implements \Serializable {
     private $person_info;
 
     /**
-     * @OneToMany(targetEntity="Registration", mappedBy="candidat")
+     * @OneToMany(targetEntity="Inscription", mappedBy="candidat")
      * */
-    private $registrations;
+    private $inscriptions;
 
     public function __construct($state, $validated, $person_info) {
         $this->state = $state;
@@ -74,9 +74,9 @@ class Candidat extends Baseentity implements \Serializable {
         return $this->person_info;
     }
 
-    public function getRegistrations() {
-        return $this->registrations;
-    }
+    public function getInscriptions() {
+        return $this->inscriptions;
+    }    
 
     public function setId($id) {
         $this->id = $id;
@@ -94,10 +94,10 @@ class Candidat extends Baseentity implements \Serializable {
         $this->person_info = $person_info;
     }
 
-    public function setRegistrations($registrations) {
-        $this->registrations = $registrations;
+    public function setInscriptions($inscriptions): void {
+        $this->inscriptions = $inscriptions;
     }
-    
+  
     public function __toString() {
         return $this->person_info->__toString();
     }

@@ -68,7 +68,7 @@ class StudyFeesController extends BaseController {
      * fee
      */
     public function studyfees() {
-        $this->layout->assignOne('studyfees_datalist', $this->list_studyfees());
+        $this->layout->assignOne('inscription_datalist', $this->list_inscription());
         $this->layout->assignOne('candidat_datalist', $this->candidatChoiceListData());
         $this->layout->assignOne('fee_datalist', $this->feeChoiceListData());
         if ($this->session->userdata('done') === 1) {
@@ -103,7 +103,7 @@ class StudyFeesController extends BaseController {
                 $this->layout->assignOne('success', "paiement de de frais de dossier éffectué avec succès ");
             }
         }
-        $this->layout->assignOne('studyfees_datalist', $this->list_studyfees());
+        $this->layout->assignOne('inscription_datalist', $this->list_inscription());
         $this->layout->assignOne('candidat_datalist', $this->candidatChoiceListData());
         $this->layout->assignOne('fee_datalist', $this->feeChoiceListData());
         // show the template
@@ -129,9 +129,9 @@ class StudyFeesController extends BaseController {
     }
 
     //list the fee data from the database
-    public function list_studyfees() {
-        $this->fee_datalist = $this->crud->readSortAsc($this->feeService, 'wording');
-        return $this->fee_datalist;
+    public function list_inscription() {
+        $this->inscription_datalist = $this->crud->readSortAsc($this->inscriptionService, 'payment_date');
+        return $this->inscription_datalist;
     }
 
     //list of inscription to populate Inscription choicelist

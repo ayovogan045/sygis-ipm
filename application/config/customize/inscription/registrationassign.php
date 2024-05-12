@@ -29,6 +29,7 @@ $config['registrationform'] = array(
     "pictureimg" => "img[]",
     "picturefile" => "file",
     "candidats" => "candidats",
+    "inscriptions" => "inscriptions",
     //form and table labels
     "num" => "N°",
     "lastnamelabel" => "Nom",
@@ -49,6 +50,7 @@ $config['registrationform'] = array(
     "oldschoollabel" => "Ecole de provenance",
     "picturelabel" => "Photo",
     "candidatslabel" => "Candidats",
+    "inscriptionslabel" => "Inscriptions",
     //form descriptions
     "lastnamedesc" => "le noms de l'aprenant",
     "firstnamedesc" => "le prénoms de l'aprenant",

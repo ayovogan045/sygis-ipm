@@ -53,12 +53,12 @@
                             <span class="lbl"></span>
                         </label>
                     </td>
-                    <td>{$data->getCandidat()->getPerson_info()->getLast_name()}</td>
-                    <td>{$data->getCandidat()->getPerson_info()->getFirst_name()}</td>
-                    <td>{$data->getCandidat()->getPerson_info()->getGender()}</td>
-                    <td>{$data->getCandidat()->getPerson_info()->getPhone()}</td>
-                    <td>{$data->getCandidat()->getPerson_info()->getMail()}</td>
-                    <td>{$data->getCandidat()->getPerson_info()->getAdress()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getLast_name()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getFirst_name()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getGender()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getPhone()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getMail()}</td>
+                    <td>{$data->getInscription()->getCandidat()->getPerson_info()->getAdress()}</td>
                     <td>
                         <div class="hidden-sm hidden-xs action-buttons">
                             <a  class="blue tooltip-info " data-rel="tooltip" title="{$viewlabel}" href="#">

@@ -67,6 +67,21 @@ class Country extends Baseentity implements \Serializable {
     private $person_infos;
 
     /**
+     * @OneToMany(targetEntity="PersonInfo", mappedBy="birth_country")
+     * */
+    private $person_info_list;
+
+    /**
+     * @OneToMany(targetEntity="PersonInfo", mappedBy="resident_country")
+     * */
+    private $person_info_resident_countries;
+
+    /**
+     * @OneToMany(targetEntity="PersonInfo", mappedBy="exam_country")
+     * */
+    private $person_info_exam_countries;
+
+    /**
      * @var boolean
      * @Column(type="integer", nullable=false, name="state")
      * */

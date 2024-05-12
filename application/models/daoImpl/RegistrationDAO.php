@@ -60,7 +60,7 @@ class RegistrationDAO extends DAO implements IRegistrationDAO {
                 ->from($this->entity, 'e')
                 ->where('e.state != :state')
                 ->AndWhere('e.academic_year = :academicyear')
-                ->orderBy('e.candidat', "ASC")
+                ->orderBy('e.inscription', "ASC")
                 ->setParameter('state', 1)
                 ->setParameter('academicyear', $academicyear);
         try {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-05-25 16:26:26
+/* Smarty version 3.1.40, created on 2023-09-06 21:30:53
   from '/home/amen/public_html/sygis-ipm/application/views/templates/content/inscription/registration/registrationlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_646f8c32611e73_03081910',
+  'unifunc' => 'content_64f8ef8ded98b0_53521605',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f9ef9171c9743eb43bf071591ee242ca0a98a95f' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/content/inscription/registration/registrationlist.tpl',
-      1 => 1685031970,
+      1 => 1694035847,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646f8c32611e73_03081910 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64f8ef8ded98b0_53521605 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="clearfix"> 
     <div class="pull-right tableTools-container">
         <a href="submit" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Expoter en format CSV">
@@ -94,17 +94,17 @@ $_smarty_tpl->tpl_vars['data']->do_else = false;
                             <span class="lbl"></span>
                         </label>
                     </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getLast_name();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getLast_name();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getFirst_name();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getFirst_name();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getGender();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getGender();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getPhone();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getPhone();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getMail();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getMail();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getCandidat()->getPerson_info()->getAdress();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getInscription()->getCandidat()->getPerson_info()->getAdress();?>
 </td>
                     <td>
                         <div class="hidden-sm hidden-xs action-buttons">

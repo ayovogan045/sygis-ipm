@@ -21,7 +21,7 @@
         <script type="text/javascript">
             jQuery(function ($) {
 
-                var candidatselectedlist = $('select[name="candidatselectedlist[]"]').bootstrapDualListbox(
+                var inscriptionselectedlist = $('select[name="inscriptionselectedlist[]"]').bootstrapDualListbox(
                         {
                             infoTextFiltered: '<span class="label label-purple label-lg">Filtré</span>',
                             filterTextClear: 'Afficher tout',

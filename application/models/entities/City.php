@@ -61,6 +61,11 @@ class City extends Baseentity implements \Serializable{
      * @OneToMany(targetEntity="PersonInfo", mappedBy="birth_city")
      * */
     private $person_infos;
+    
+//    /**
+//     * @OneToMany(targetEntity="PersonInfo", mappedBy="resident_city")
+//     * */
+//    private $person_info_resident_cities;
 
     public function __construct($wording, $description, $state, $country) {
         $this->wording = $wording;

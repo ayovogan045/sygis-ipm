@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-05-30 13:49:30
+/* Smarty version 3.1.40, created on 2023-09-01 08:56:09
   from '/home/amen/public_html/sygis-ipm/application/views/templates/content/recovery/studyfees/studyfeeslist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_6475feea5bf192_20259777',
+  'unifunc' => 'content_64f1a72952b164_29502298',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '97e5dfff575bf97e5dc149e0d802302c3db8f87c' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/content/recovery/studyfees/studyfeeslist.tpl',
-      1 => 1685451958,
+      1 => 1693558565,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6475feea5bf192_20259777 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64f1a72952b164_29502298 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="clearfix"> 
     <div class="pull-right tableTools-container">
         <a href="submit" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Expoter en format CSV">
@@ -80,7 +80,7 @@ function content_6475feea5bf192_20259777 (Smarty_Internal_Template $_smarty_tpl)
         <tbody>
             <?php $_smarty_tpl->_assignInScope('index', 1);?>
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['inscriptiondatalist']->value, 'data');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['inscription_datalist']->value, 'data');
 $_smarty_tpl->tpl_vars['data']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['data']->value) {
 $_smarty_tpl->tpl_vars['data']->do_else = false;

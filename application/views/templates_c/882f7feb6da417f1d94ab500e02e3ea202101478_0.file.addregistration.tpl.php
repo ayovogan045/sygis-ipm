@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-05-24 18:45:25
+/* Smarty version 3.1.40, created on 2023-09-06 21:27:55
   from '/home/amen/public_html/sygis-ipm/assets/js/pscript/inscription/registration/addregistration.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_646e5b45766a78_73952239',
+  'unifunc' => 'content_64f8eedbac04d6_97377431',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '882f7feb6da417f1d94ab500e02e3ea202101478' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/assets/js/pscript/inscription/registration/addregistration.tpl',
-      1 => 1684953867,
+      1 => 1694035670,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646e5b45766a78_73952239 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64f8eedbac04d6_97377431 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 if ((isset($_smarty_tpl->tpl_vars['pagescript']->value)) && $_smarty_tpl->tpl_vars['pagescript']->value === 'addregistration') {?>
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1743367239646e5b45762fb3_60825967', "script");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_170283076064f8eedbabaa33_39541302', "script");
 ?>
 
 <?php }
 }
 /* {block "script"} */
-class Block_1743367239646e5b45762fb3_60825967 extends Smarty_Internal_Block
+class Block_170283076064f8eedbabaa33_39541302 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'script' => 
   array (
-    0 => 'Block_1743367239646e5b45762fb3_60825967',
+    0 => 'Block_170283076064f8eedbabaa33_39541302',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -91,7 +91,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
  type="text/javascript">
             jQuery(function ($) {
 
-                var candidatselectedlist = $('select[name="candidatselectedlist[]"]').bootstrapDualListbox(
+                var inscriptionselectedlist = $('select[name="inscriptionselectedlist[]"]').bootstrapDualListbox(
                         {
                             infoTextFiltered: '<span class="label label-purple label-lg">Filtré</span>',
                             filterTextClear: 'Afficher tout',

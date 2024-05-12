@@ -10,9 +10,10 @@ namespace entities;
  */
 
 use Doctrine\Common\Collections\ArrayCollection;
-
 use entities\Baseentity;
+
 require_once APPPATH . 'models/entities/Baseentity.php';
+
 /**
  * Registration
  * @author Xlencia
@@ -65,35 +66,35 @@ class Registration extends Baseentity implements \Serializable {
     private $academic_year;
 
     /**
-     * @ManyToOne(targetEntity="candidat",inversedBy="registrations", fetch="LAZY")
-     * @JoinColumn(name="candidat_id", nullable=false, referencedColumnName="id")
+     * @ManyToOne(targetEntity="inscription",inversedBy="registrations", fetch="LAZY")
+     * @JoinColumn(name="inscription_id", nullable=false, referencedColumnName="id")
      * */
-    private $candidat;
+    private $inscription;
 
-    function __construct($registration_date, $state, $academic_year, $candidat) {
+    function __construct($registration_date, $state, $academic_year, $inscription) {
         $this->registration_date = $registration_date;
         $this->state = $state;
         $this->academic_year = $academic_year;
-        $this->candidat = $candidat;
+        $this->inscription = $inscription;
         $this->registration_classrooms = new ArrayCollection();
         $this->registration_courses = new ArrayCollection();
         $this->payments = new ArrayCollection();
     }
-    
+
     /**
      * @return int
      */
     public function getId() {
         return $this->id;
     }
-    
+
     /**
      * @return string
      */
     public function getRegistration_date() {
         return $this->registration_date;
     }
-    
+
     /**
      * @return bool
      */
@@ -112,7 +113,7 @@ class Registration extends Baseentity implements \Serializable {
     function getPayments() {
         return $this->payments;
     }
-    
+
     /**
      * @return AcademicYear
      */
@@ -120,10 +121,10 @@ class Registration extends Baseentity implements \Serializable {
         return $this->academic_year;
     }
 
-    function getCandidat() {
-        return $this->candidat;
+    function getInscription() {
+        return $this->inscription;
     }
-    
+
     /**
      * @param $id
      */
@@ -155,12 +156,12 @@ class Registration extends Baseentity implements \Serializable {
         $this->academic_year = $academic_year;
     }
 
-    function setCandidat($candidat) {
-        $this->candidat = $candidat;
+    function setInscription($inscription) {
+        $this->inscription = $inscription;
     }
 
     public function __toString() {
-        return $this->candidat->__toString();
+        return $this->inscription->__toString();
     }
 
     /**
@@ -181,5 +182,4 @@ class Registration extends Baseentity implements \Serializable {
                 $this->id
                 ) = __unserialize($serialized);
     }
-
 }

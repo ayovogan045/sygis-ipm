@@ -48,19 +48,15 @@ class InscriptionDAO extends DAO implements IInscriptionDAO {
         return $this->list;
     }
     
-    public function getAllToRegistrationByAcademicYear($academicyear) {
-//        sSQL = "select * from t_clients LEFT JOIN t_prods ON t_clients.v_client_id = t_prods.v_client_id"
-//        where('u.id NOT IN (SELECT u2.id FROM User u2 INNER JOIN u2.Groups g)');
+    public function getAllToRegistration() {
         $query_builder = $this->em->createQueryBuilder();
         $query_builder->select('e')
                 ->from($this->entity, ' e')
-                ->leftJoin('e.candidat','c')
-                ->Where('c.id NOT IN (select c2.id FROM entities\Registration r INNER JOIN r.candidat c2)')
+//                ->leftJoin('e.inscription','c')
+                ->Where('e.id NOT IN (select c2.id FROM entities\Registration r INNER JOIN r.inscription c2)')
                 ->andwhere('e.state != :state')
-                ->andWhere('e.academicyear = :academicyear')
                 ->orderBy('e.candidat', "ASC")
-                ->setParameter('state', 1)
-                ->setParameter('academicyear', $academicyear);
+                ->setParameter('state', 1);
         try {
             $this->list = $query_builder->getQuery()->getResult();
         } catch (NoResultException $ex) {
