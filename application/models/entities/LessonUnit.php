@@ -57,10 +57,10 @@ class LessonUnit extends Baseentity implements \Serializable {
     private $lesson_unit_type;
 
     /**
-     * @ManyToOne(targetEntity="LessonUnitMention", inversedBy="lesson_units", fetch="LAZY")
-     * @JoinColumn(name="lesson_unit_mention_id", nullable=false, referencedColumnName="id")
+     * @ManyToOne(targetEntity="Speciatilty", inversedBy="lesson_units", fetch="LAZY")
+     * @JoinColumn(name="speciality_id", nullable=false, referencedColumnName="id")
      * */
-    private $lesson_unit_mention;
+    private $speciality;
 
     /**
      * @OneToMany(targetEntity="course", mappedBy="lesson_unit")

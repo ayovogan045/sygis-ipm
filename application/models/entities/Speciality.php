@@ -50,6 +50,11 @@ class Speciality extends Baseentity implements \Serializable {
     private $mention;
     
     /**
+     * @OneToMany(targetEntity="lessonunit", mappedBy="speciality")
+     * */
+    private $lesson_units;
+    
+    /**
      * @OneToMany(targetEntity="PersonInfo", mappedBy="speciality")
      * */
     private $speciality_person_infos;

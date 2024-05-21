@@ -45,11 +45,6 @@ class LessonUnitMention extends Baseentity implements \Serializable {
     private $code;
 
     /**
-     * @OneToMany(targetEntity="lessonunit", mappedBy="lesson_unit_mention")
-     * */
-    private $lesson_units;
-
-    /**
      * @var boolean
      * @Column(type="integer", nullable=false, name="state")
      * */
