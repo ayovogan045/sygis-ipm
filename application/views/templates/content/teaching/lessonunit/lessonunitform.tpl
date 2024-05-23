@@ -67,27 +67,27 @@
                 <div class="col-sm-12 hr hr-16 hr-dotted"></div> 
             </div> 
             <div class="form-group col-sm-6 required">
-                <label class="col-sm-4 control-label no-padding-right" for="{$lessonunitmention}"> 
-                    <span>{$lessonunitmentionlabel}</span>
+                <label class="col-sm-4 control-label no-padding-right" for="{$lessonunitspeciality}"> 
+                    <span>{$lessonunitspecialitylabel}</span>
                     <span class="asteriskField text-danger">*</span>
                 </label>
 
                 <div class="col-sm-8">
-                    <select class="chosen-select form-control" id="form-field-select-3" name="{$lessonunitmention}" data-placeholder="{$lessonunitmentiondesc}" required="true">
-                        {if !isset($lessonunitmentionselected) || ($lessonunitmentionselected === "")}
+                    <select class="chosen-select form-control" id="form-field-select-3" name="{$lessonunitspeciality}" data-placeholder="{$lessonunitspecialitydesc}" required="true">
+                        {if !isset($lessonunitspecialityselected) || ($lessonunitspecialityselected === "")}
                             <option value="" class="nothing"> </option>
-                            {if $lessonunitmention_datalist != NULL}
-                                {foreach from=$lessonunitmention_datalist item=data}
+                            {if $lessonunitspeciality_datalist != NULL}
+                                {foreach from=$lessonunitspeciality_datalist item=data}
                                     <option value="{$data->getId()}">{$data->__toString()}</option>
                                 {/foreach}
                             {/if}
                         {else}
-                            {if isset($lessonunitmentionselected) && ($lessonunitmentionselected != "")}
-                                <option value="{$lessonunitmentionselected->getId()}">{$lessonunitmentionselected->__toString()}</option>
+                            {if isset($lessonunitspecialityselected) && ($lessonunitspecialityselected != "")}
+                                <option value="{$lessonunitspecialityselected->getId()}">{$lessonunitspecialityselected->__toString()}</option>
                             {/if}
-                            {if $lessonunitmention_datalist != NULL}
-                                {foreach from=$lessonunitmention_datalist item=data}
-                                    {if $lessonunitmentionselected->getId() != $data->getId()}
+                            {if $lessonunitspeciality_datalist != NULL}
+                                {foreach from=$lessonunitspeciality_datalist item=data}
+                                    {if $lessonunitspecialityselected->getId() != $data->getId()}
                                         <option value="{$data->getId()}">{$data->__toString()}</option>
                                     {/if}
                                 {/foreach}

@@ -91,26 +91,26 @@ $config['lessonunitform'] = array(
     "lessonunitmediumwording" => "lessonunitmediumwording",
     "lessonunitlongwording" => "lessonunitlongwording",
     "lessonunittype" => "lessonunittype",
-    "lessonunitmention" => "lessonunitmention",
+    "lessonunitspeciality" => "lessonunitspeciality",
     //form and table labels
     "num" => "N°",
     "codeuelabel" => "Code UE",
     "lessonunitmediumwordinglabel" => "Libellé moyen",
     "lessonunitlongwordinglabel" => "Libellé Long",
     "lessonunittypelabel" => "Catégorie UE",
-    "lessonunitmentionlabel" => "Mention UE",
+    "lessonunitspecialitylabel" => "Spécialité",
     //form descriptions  
     "codeuedesc" => "Le libellé court",
     "lessonunitmediumwordingdesc" => "Le libellé moyen",
     "lessonunitlongwordingdesc" => "Le libellé Long",
     "lessonunittypedesc" => "La catégorie de l'UE",
-    "lessonunitmentiondesc" => "La mention de l'UE",
+    "lessonunitspecialitydesc" => "La spécialité de l'UE",
     //form ids  
     "codeueid" => "codeueid",
     "lessonunitmediumwordingid" => "lessonunitmediumwordingid",
     "lessonunitlongwordingid" => "lessonunitlongwordingid",
     "lessonunittypeid" => "lessonunittypeid",
-    "lessonunitmentionid" => "lessonunitmentionid",
+    "lessonunitspecialityid" => "lessonunitspecialityid",
     //form links
     "lessonuniteditedlink" => "teaching/LessonUnitController/edit_lessonunit",
     "lessonunitdeletedlink" => "teaching/LessonUnitController/delete_lessonunit"

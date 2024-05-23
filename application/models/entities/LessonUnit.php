@@ -57,7 +57,7 @@ class LessonUnit extends Baseentity implements \Serializable {
     private $lesson_unit_type;
 
     /**
-     * @ManyToOne(targetEntity="Speciatilty", inversedBy="lesson_units", fetch="LAZY")
+     * @ManyToOne(targetEntity="Speciality", inversedBy="lesson_units", fetch="LAZY")
      * @JoinColumn(name="speciality_id", nullable=false, referencedColumnName="id")
      * */
     private $speciality;
@@ -73,72 +73,80 @@ class LessonUnit extends Baseentity implements \Serializable {
      * */
     private $state = 0;
 
-    public function __construct($long_wording, $medium_wording, $codeue,
-            $state, $lesson_unit_type, $lesson_unit_mention) {
+    public function __construct(string $long_wording, string $medium_wording, 
+            string $codeue, $lesson_unit_type, $speciality, bool $state) {
         $this->long_wording = $long_wording;
         $this->medium_wording = $medium_wording;
         $this->codeue = $codeue;
-        $this->state = $state;
         $this->lesson_unit_type = $lesson_unit_type;
-        $this->lesson_unit_mention = $lesson_unit_mention;
-        $this->courses = new ArrayCollection();
+        $this->speciality = $speciality;
+        $this->state = $state;
     }
-    function getId() {
+
+    public function getId(): int {
         return $this->id;
     }
 
-    function getLong_wording() {
+    public function getLong_wording(): string {
         return $this->long_wording;
     }
 
-    function getMedium_wording() {
+    public function getMedium_wording(): string {
         return $this->medium_wording;
     }
 
-    function getCodeue() {
+    public function getCodeue(): string {
         return $this->codeue;
     }
 
-    function getLesson_unit_type() {
+    public function getLesson_unit_type() {
         return $this->lesson_unit_type;
     }
 
-    function getLesson_unit_mention() {
-        return $this->lesson_unit_mention;
+    public function getSpeciality() {
+        return $this->speciality;
     }
 
-    function getState() {
+    public function getCourses() {
+        return $this->courses;
+    }
+
+    public function getState(): bool {
         return $this->state;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setLong_wording($long_wording) {
+    public function setLong_wording(string $long_wording): void {
         $this->long_wording = $long_wording;
     }
 
-    function setMedium_wording($medium_wording) {
+    public function setMedium_wording(string $medium_wording): void {
         $this->medium_wording = $medium_wording;
     }
 
-    function setCodeue($codeue) {
+    public function setCodeue(string $codeue): void {
         $this->codeue = $codeue;
     }
 
-    function setLesson_unit_type($lesson_unit_type) {
+    public function setLesson_unit_type($lesson_unit_type): void {
         $this->lesson_unit_type = $lesson_unit_type;
     }
 
-    function setLesson_unit_mention($lesson_unit_mention) {
-        $this->lesson_unit_mention = $lesson_unit_mention;
+    public function setSpeciality($speciality): void {
+        $this->speciality = $speciality;
     }
 
-    function setState($state) {
+    public function setCourses($courses): void {
+        $this->courses = $courses;
+    }
+
+    public function setState(bool $state): void {
         $this->state = $state;
     }
-
+    
     /**
      * @return string
      */

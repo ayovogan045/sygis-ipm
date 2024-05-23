@@ -107,7 +107,7 @@ class Doctrine {
             $this->em->getClassMetadata('entities\JobType'),
             $this->em->getClassMetadata('entities\Lessonunit'),
             $this->em->getClassMetadata('entities\LessonunitType'),
-            $this->em->getClassMetadata('entities\LessonunitMention'),
+//            $this->em->getClassMetadata('entities\LessonunitMention'),
             $this->em->getClassMetadata('entities\Level'),
             $this->em->getClassMetadata('entities\Mark'),
             $this->em->getClassMetadata('entities\Mention'),
