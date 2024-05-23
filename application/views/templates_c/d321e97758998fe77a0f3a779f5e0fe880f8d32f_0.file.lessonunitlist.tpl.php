@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2022-07-29 19:41:12
+/* Smarty version 3.1.40, created on 2024-05-23 03:26:21
   from '/home/amen/public_html/sygis-ipm/application/views/templates/content/teaching/lessonunit/lessonunitlist.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_62e437d8cd1051_37705817',
+  'unifunc' => 'content_664eb75de97910_07810921',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd321e97758998fe77a0f3a779f5e0fe880f8d32f' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/content/teaching/lessonunit/lessonunitlist.tpl',
-      1 => 1654470611,
+      1 => 1716434737,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62e437d8cd1051_37705817 (Smarty_Internal_Template $_smarty_tpl) {
+function content_664eb75de97910_07810921 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="clearfix"> 
     <div class="pull-right tableTools-container">
         <a href="submit" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Expoter en format CSV">
@@ -68,7 +68,7 @@ function content_62e437d8cd1051_37705817 (Smarty_Internal_Template $_smarty_tpl)
 </th>
                 <th><?php echo $_smarty_tpl->tpl_vars['lessonunittypelabel']->value;?>
 </th>
-                <th><?php echo $_smarty_tpl->tpl_vars['lessonunitmentionlabel']->value;?>
+                <th><?php echo $_smarty_tpl->tpl_vars['lessonunitspecialitylabel']->value;?>
 </th>
                 <th><?php echo $_smarty_tpl->tpl_vars['actionlabel']->value;?>
 </th>
@@ -100,7 +100,7 @@ $_smarty_tpl->tpl_vars['data']->do_else = false;
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getLesson_unit_type()->__toString();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getLesson_unit_mention()->__toString();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['data']->value->getSpeciality()->__toString();?>
 </td>
                     <td>
                         <div class="hidden-sm hidden-xs action-buttons">

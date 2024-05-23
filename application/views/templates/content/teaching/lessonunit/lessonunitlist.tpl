@@ -36,7 +36,7 @@
                 <th>{$lessonunitmediumwordinglabel}</th>
                 <th>{$lessonunitlongwordinglabel}</th>
                 <th>{$lessonunittypelabel}</th>
-                <th>{$lessonunitmentionlabel}</th>
+                <th>{$lessonunitspecialitylabel}</th>
                 <th>{$actionlabel}</th>
             </tr>
         </thead>
@@ -56,7 +56,7 @@
                     <td>{$data->getMedium_wording()}</td>
                     <td>{$data->getLong_wording()}</td>
                     <td>{$data->getLesson_unit_type()->__toString()}</td>
-                    <td>{$data->getLesson_unit_mention()->__toString()}</td>
+                    <td>{$data->getSpeciality()->__toString()}</td>
                     <td>
                         <div class="hidden-sm hidden-xs action-buttons">
                             <a  class="blue tooltip-info " data-rel="tooltip" title="{$viewlabel}" href="#">

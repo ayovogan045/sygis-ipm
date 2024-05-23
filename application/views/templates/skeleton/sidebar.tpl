@@ -400,7 +400,7 @@
                     </ul>
                 </li>
 
-                <li class="{if isset($pagetitle) && (($pagetitle == "lessonunittype") || ($pagetitle == "lessonunitmention") 
+                <li class="{if isset($pagetitle) && (($pagetitle == "lessonunittype")  
                             || ($pagetitle == "lessonunit") || ($pagetitle == "semester") || ($pagetitle == "lessonplaning") 
                             || ($pagetitle == "timetable") || ($pagetitle == "calllist"))} {$activeopen} {/if}">
                     <a href="#" class="dropdown-toggle">
@@ -416,14 +416,6 @@
                             <a href="{$root_url}/{$lessonunittype}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Catégorie UE
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="{if isset($pagetitle) && ($pagescript == "lessonunitmention")} {$active} {/if}">
-                            <a href="{$root_url}/{$lessonunitmention}">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mention UE
                             </a>
                             <b class="arrow"></b>
                         </li>

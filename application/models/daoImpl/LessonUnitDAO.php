@@ -31,7 +31,7 @@ class LessonUnitDAO extends DAO implements ILessonUnitDAO {
         if ($entity != NULL || $entity != "") {
             $query = $this->em->createQuery("SELECT e FROM " . $this->entity . " e WHERE e.state !=1 "
                     . "AND e.codeue = " . "'" . $entity->getCodeue() . "'");
-                print_r($query->getSql()."".$query->getDql());
+//                print_r($query->getSql()."".$query->getDql());
             try {              
 //                print_r($query->getOneOrNullResult());
                 return $query->getOneOrNullResult();

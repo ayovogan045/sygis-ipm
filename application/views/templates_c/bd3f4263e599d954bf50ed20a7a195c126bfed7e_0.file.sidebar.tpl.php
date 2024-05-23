@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.40, created on 2023-10-08 20:24:17
+/* Smarty version 3.1.40, created on 2024-05-23 03:03:47
   from '/home/amen/public_html/sygis-ipm/application/views/templates/skeleton/sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.40',
-  'unifunc' => 'content_65230ff114b608_98985902',
+  'unifunc' => 'content_664eb213173223_93709501',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd3f4263e599d954bf50ed20a7a195c126bfed7e' => 
     array (
       0 => '/home/amen/public_html/sygis-ipm/application/views/templates/skeleton/sidebar.tpl',
-      1 => 1696796653,
+      1 => 1716433421,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65230ff114b608_98985902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_664eb213173223_93709501 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20422266265230ff1115645_18153501', "sidebar");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1671120163664eb21313db86_29581185', "sidebar");
 }
 /* {block "script"} */
-class Block_22759741765230ff1115ef9_02002595 extends Smarty_Internal_Block
+class Block_244671089664eb21313ee84_87609558 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -44,16 +44,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "script"} */
 /* {block "sidebar"} */
-class Block_20422266265230ff1115645_18153501 extends Smarty_Internal_Block
+class Block_1671120163664eb21313db86_29581185 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'sidebar' => 
   array (
-    0 => 'Block_20422266265230ff1115645_18153501',
+    0 => 'Block_1671120163664eb21313db86_29581185',
   ),
   'script' => 
   array (
-    0 => 'Block_22759741765230ff1115ef9_02002595',
+    0 => 'Block_244671089664eb21313ee84_87609558',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,7 +61,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
     <div id="sidebar" class="sidebar responsive ace-save-state">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_22759741765230ff1115ef9_02002595', "script", $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_244671089664eb21313ee84_87609558', "script", $this->tplIndex);
 ?>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -506,7 +506,7 @@ echo $_smarty_tpl->tpl_vars['activeopen']->value;?>
                     </ul>
                 </li>
 
-                <li class="<?php if ((isset($_smarty_tpl->tpl_vars['pagetitle']->value)) && (($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonunittype") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonunitmention") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonunit") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "semester") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonplaning") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "timetable") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "calllist"))) {?> <?php echo $_smarty_tpl->tpl_vars['activeopen']->value;?>
+                <li class="<?php if ((isset($_smarty_tpl->tpl_vars['pagetitle']->value)) && (($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonunittype") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonunit") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "semester") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "lessonplaning") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "timetable") || ($_smarty_tpl->tpl_vars['pagetitle']->value == "calllist"))) {?> <?php echo $_smarty_tpl->tpl_vars['activeopen']->value;?>
  <?php }?>">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
@@ -524,17 +524,6 @@ echo $_smarty_tpl->tpl_vars['activeopen']->value;?>
 ">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Catégorie UE
-                            </a>
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="<?php if ((isset($_smarty_tpl->tpl_vars['pagetitle']->value)) && ($_smarty_tpl->tpl_vars['pagescript']->value == "lessonunitmention")) {?> <?php echo $_smarty_tpl->tpl_vars['active']->value;?>
- <?php }?>">
-                            <a href="<?php echo $_smarty_tpl->tpl_vars['root_url']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['lessonunitmention']->value;?>
-">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mention UE
                             </a>
                             <b class="arrow"></b>
                         </li>

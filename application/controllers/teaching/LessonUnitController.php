@@ -14,12 +14,12 @@ require_once APPPATH . 'controllers/BaseController.php';
 
 use serviceImpl\LessonUnitService,
     serviceImpl\LessonUnitTypeService,
-    serviceImpl\LessonUnitMentionService,
+    serviceImpl\SpecialityService,
     entities\LessonUnit;
 
 require_once APPPATH . 'models/serviceImpl/LessonUnitService.php';
 require_once APPPATH . 'models/serviceImpl/LessonUnitTypeService.php';
-require_once APPPATH . 'models/serviceImpl/LessonUnitMentionService.php';
+require_once APPPATH . 'models/serviceImpl/SpecialityService.php';
 
 /**
  * @property CI_Form_validation fv a class instance of CI_Form_validation
@@ -35,16 +35,16 @@ class LessonUnitController extends BaseController {
 
     private $lessonunitService;
     private $lessonunittypeService;
-    private $lessonunitmentionService;
+    private $specialityService;
     private $lessonunit_datalist;
     private $lessonunittype_datalist;
-    private $lessonunitmention_datalist;
+    private $lessonunitspeciality_datalist;
     private $entity;
     private $codeue;
     private $medium_wording;
     private $long_wording;
     private $lessonunittype;
-    private $lessonunitmention;
+    private $lessonunitspeciality;
 
     /**
      * constructor
@@ -62,7 +62,7 @@ class LessonUnitController extends BaseController {
 
         $this->lessonunitService = new LessonUnitService();
         $this->lessonunittypeService = new LessonUnitTypeService();
-        $this->lessonunitmentionService = new LessonUnitMentionService();
+        $this->specialityService = new SpecialityService();
     }
 
     /**
@@ -72,7 +72,7 @@ class LessonUnitController extends BaseController {
     public function lessonunit() {
         $this->layout->assignOne('lessonunit_datalist', $this->list_lessonunit());
         $this->layout->assignOne('lessonunittype_datalist', $this->lessonunittypeChoiceListData());
-        $this->layout->assignOne('lessonunitmention_datalist', $this->lessonunitmentionChoiceListData());
+        $this->layout->assignOne('lessonunitspeciality_datalist', $this->lessonunitspecialityChoiceListData());
         if ($this->session->userdata('done') === 1) {
             $this->layout->assignOne('success', "Suppression éffectué avec succès");
         } else if ($this->session->userdata('done') === 0) {
@@ -95,7 +95,7 @@ class LessonUnitController extends BaseController {
             $this->session->set_userdata('currentlessonunit', 0);
         } else {
             $lessonunit = new LessonUnit($this->getLong_wording(), $this->getMedium_wording(), $this->getCodeue(),
-            $this->getNormalStatus(), $this->getLessonunittype(), $this->getLessonunitmention());
+            $this->getLessonunittype(), $this->getLessonunitspeciality(),$this->getNormalStatus());
             if ($this->lessonunitService->getOneExist($lessonunit) != NULL) {
                 $this->layout->assignOne('error', "un enrégistrement avec les mêmes informations existe déjà dans le système");
             } else {
@@ -106,7 +106,7 @@ class LessonUnitController extends BaseController {
         }
         $this->layout->assignOne('lessonunit_datalist', $this->list_lessonunit());
         $this->layout->assignOne('lessonunittype_datalist', $this->lessonunittypeChoiceListData());
-        $this->layout->assignOne('lessonunitmention_datalist', $this->lessonunitmentionChoiceListData());
+        $this->layout->assignOne('lessonunitspeciality_datalist', $this->lessonunitspecialityChoiceListData());
         // show the template
         $this->layout->view('content/teaching/lessonunit/lessonunitpage.tpl');
     }
@@ -141,9 +141,9 @@ class LessonUnitController extends BaseController {
     }
 
     //list of LessonUnitMention to populate LessonUnitMention choicelist
-    public function lessonunitmentionChoiceListData() {
-        $this->lessonunitmention_datalist = $this->crud->readSortAsc($this->lessonunitmentionService, 'wording');
-        return $this->lessonunitmention_datalist;
+    public function lessonunitspecialityChoiceListData() {
+        $this->lessonunitspeciality_datalist = $this->crud->readSortAsc($this->specialityService, 'wording');
+        return $this->lessonunitspeciality_datalist;
     }
 
     public function editFields($key) {
@@ -160,7 +160,7 @@ class LessonUnitController extends BaseController {
         $this->setMedium_wording(htmlspecialchars($_POST['lessonunitmediumwording']));
         $this->setLong_wording(htmlspecialchars($_POST['lessonunitlongwording']));
         $this->setLessonunittype($this->crud->findOne($this->lessonunittypeService, htmlspecialchars($_POST['lessonunittype'])));
-        $this->setLessonunitmention($this->crud->findOne($this->lessonunitmentionService, htmlspecialchars($_POST['lessonunitmention'])));
+        $this->setLessonunitspeciality($this->crud->findOne($this->specialityService, htmlspecialchars($_POST['lessonunitspeciality'])));
 
     }
 
@@ -169,8 +169,8 @@ class LessonUnitController extends BaseController {
             $this->layout->assignOne('codeuevalue', $entity->getCodeue());
             $this->layout->assignOne('lessonunitlongwordingvalue', $entity->getLong_wording());
             $this->layout->assignOne('lessonunitmediumwordingvalue', $entity->getMedium_wording());
-            $this->layout->assignOne('lessonunittypeselected', $entity->getLesson_unit_mention());
-            $this->layout->assignOne('lessonunitmentionselected', $entity->getLesson_unit_mention());
+            $this->layout->assignOne('lessonunittypeselected', $entity->getLesson_unit_type());
+            $this->layout->assignOne('lessonunitspecialityselected', $entity->getSpeciality());
         }
     }
 
@@ -180,7 +180,7 @@ class LessonUnitController extends BaseController {
         $this->entity->setMedium_wording($this->getMedium_wording());
         $this->entity->setLong_wording($this->getLong_wording());
         $this->entity->setLesson_unit_type($this->getLessonunittype());
-        $this->entity->setLesson_unit_mention($this->getLessonunitmention());
+        $this->entity->setSpeciality($this->getLessonunitspeciality());
         if ($this->lessonunitService->getOneExist($this->entity) != NULL) {
             $this->layout->assignOne('error', "un enrégistrement avec les mêmes informations existe déjà dans le système");
             $this->session->set_userdata('currentlessonunit', 0);
@@ -208,8 +208,8 @@ class LessonUnitController extends BaseController {
         return $this->lessonunittype;
     }
 
-    function getLessonunitmention() {
-        return $this->lessonunitmention;
+    public function getLessonunitspeciality() {
+        return $this->lessonunitspeciality;
     }
 
     function setCodeue($codeue) {
@@ -227,9 +227,9 @@ class LessonUnitController extends BaseController {
     function setLessonunittype($lessonunittype) {
         $this->lessonunittype = $lessonunittype;
     }
-
-    function setLessonunitmention($lessonunitmention) {
-        $this->lessonunitmention = $lessonunitmention;
+    
+    public function setLessonunitspeciality($lessonunitspeciality): void {
+        $this->lessonunitspeciality = $lessonunitspeciality;
     }
 
 }
