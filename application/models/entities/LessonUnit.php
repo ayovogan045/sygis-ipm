@@ -74,7 +74,7 @@ class LessonUnit extends Baseentity implements \Serializable {
     private $state = 0;
 
     public function __construct(string $long_wording, string $medium_wording, 
-            string $codeue, $lesson_unit_type, $speciality, bool $state) {
+            string $codeue, $lesson_unit_type, $speciality, $state) {
         $this->long_wording = $long_wording;
         $this->medium_wording = $medium_wording;
         $this->codeue = $codeue;
@@ -111,7 +111,7 @@ class LessonUnit extends Baseentity implements \Serializable {
         return $this->courses;
     }
 
-    public function getState(): bool {
+    public function getState() {
         return $this->state;
     }
 
@@ -143,7 +143,7 @@ class LessonUnit extends Baseentity implements \Serializable {
         $this->courses = $courses;
     }
 
-    public function setState(bool $state): void {
+    public function setState($state): void {
         $this->state = $state;
     }
     
