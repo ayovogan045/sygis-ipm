@@ -30,8 +30,11 @@ class LessonUnitDAO extends DAO implements ILessonUnitDAO {
     public function getOneExist($entity) {
         if ($entity != NULL || $entity != "") {
             $query = $this->em->createQuery("SELECT e FROM " . $this->entity . " e WHERE e.state !=1 "
-                    . "AND e.codeue = " . "'" . $entity->getCodeue() . "'");
-//                print_r($query->getSql()."".$query->getDql());
+                    . "AND e.codeue = " . "'" . $entity->getCodeue() . "' "
+                    . "AND e.long_wording = " . "'" . $entity->getLong_wording() . "' "
+                    . "AND e.medium_wording = " . "'" . $entity->getMedium_wording() . "' "
+                    . "AND e.lesson_unit_type = " . "'" . $entity->getLesson_unit_type() . "' "
+                    . "AND e.speciality = " . "'" . $entity->getSpeciality() . "' ");
             try {              
 //                print_r($query->getOneOrNullResult());
                 return $query->getOneOrNullResult();

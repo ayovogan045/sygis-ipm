@@ -101,7 +101,7 @@ class LessonUnitController extends BaseController {
             } else {
                 //proccess to add a new LessonUnit to database
                 $this->crud->create($this->lessonunitService, $lessonunit);
-                $this->layout->assignOne('success', "Enrégistrement du semestre " . $this->getLong_wording() . ' éffectué avec succès ');
+                $this->layout->assignOne('success', "Enrégistrement de UE" . $this->getLong_wording() . ' éffectué avec succès ');
             }
         }
         $this->layout->assignOne('lessonunit_datalist', $this->list_lessonunit());
